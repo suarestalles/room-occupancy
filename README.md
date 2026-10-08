@@ -108,4 +108,4 @@ The sorting of the `2n` generated events is the dominant operation.
 
 ## Video
 
-Video link: *To be added before submission.*
+Video link: [Link to YouTube](https://youtu.be/yiYaJgqze64)
