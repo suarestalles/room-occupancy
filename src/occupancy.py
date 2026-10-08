@@ -15,25 +15,25 @@ def max_occupancy(
     events.sort()
 
     current_occupancy = 0
-    max_occupancy_value = 0
-    peak_start = None
-    peak_end = None
+    maximum_occupancy = 0
+    peak_start: int | None = None
+    peak_end: int | None = None
 
-    for time, change in events:
+    for time, delta in events:
         previous_occupancy = current_occupancy
-        current_occupancy += change
+        current_occupancy += delta
 
-        if current_occupancy > max_occupancy_value:
-            max_occupancy_value = current_occupancy
+        if current_occupancy > maximum_occupancy:
+            maximum_occupancy = current_occupancy
             peak_start = time
             peak_end = None
 
         elif (
-            previous_occupancy == max_occupancy_value
-            and current_occupancy < max_occupancy_value
+            previous_occupancy == maximum_occupancy
+            and current_occupancy < maximum_occupancy
             and peak_start is not None
             and peak_end is None
         ):
             peak_end = time
 
-    return max_occupancy_value, peak_start, peak_end
+    return maximum_occupancy, peak_start, peak_end
